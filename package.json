@@ -1,0 +1,19 @@
+{
+  "name": "LocalNotificationsPlugin",
+  "version": "1.0.0",
+  "description": "",
+  "cordova": {
+    "id": "LocalNotificationsPlugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "ISC"
+}
