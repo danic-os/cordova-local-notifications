@@ -2,6 +2,10 @@
   "name": "LocalNotificationsPlugin",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danic-os/cordova-local-notifications.git"
+  },
   "cordova": {
     "id": "LocalNotificationsPlugin",
     "platforms": [

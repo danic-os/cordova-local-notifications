@@ -8,7 +8,7 @@
 	</js-module>
 	<platform name="android">
 		<config-file parent="/*" target="res/xml/config.xml">
-			<feature name="outsystems-plugin-local-notifications">
+			<feature name="LocalNotifications">
 				<param name="android-package" value="com.outsystems.LocalNotifications" />
 			</feature>
 		</config-file>
@@ -17,8 +17,8 @@
 	</platform>
 	<platform name="ios">
 		<config-file parent="/*" target="config.xml">
-			<feature name="outsystems-plugin-local-notifications">
-				<param name="ios-package" value="outsystems-plugin-local-notifications" />
+			<feature name="LocalNotifications">
+				<param name="ios-package" value="LocalNotifications" />
 			</feature>
 		</config-file>
 		<source-file src="src/ios/LocalNotifications.swift" />
