@@ -17,20 +17,13 @@ struct ActionStruct: Codable {
 @objc(LocalNotifications)
 class LocalNotifications: CDVPlugin {
 
-    @objc(coolMethod:)
-    func coolMethod(command: CDVInvokedUrlCommand) {
-        print("Something GOES here")
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            if success {
-                print("All set!")
-            } else if let error {
-                print(error.localizedDescription)
-            }
-        }
+    @objc(sendNotification:)
+    func sendNotification(command: CDVInvokedUrlCommand) {
+        print("Starting sendNotification")
         
         let content = UNMutableNotificationContent()
         
-        let jsonData = "{\"title\":\"Some Title\",\"subtitle\": \"idk what\",\"body\":\"My notification stuff\",\"actions\":[{\"identifier\":\"accept\",\"title\":\"Accept\"}], \"interval\":5}";
+        let jsonData = command.arguments[0] as! String
         
           
         do {
@@ -78,7 +71,7 @@ class LocalNotifications: CDVPlugin {
                 
                 
             
-                // Use the data as needed
+
             } else {
                 print("Invalid JSON format")
             }
@@ -86,6 +79,19 @@ class LocalNotifications: CDVPlugin {
             print("Error: \(error.localizedDescription)")
         }
 
+        sendPluginResult(status: CDVCommandStatus_OK, message: "It ran", callbackId: command.callbackId)
+    }
+
+    @objc(askPermission:)
+    func askPermission(command: CDVInvokedUrlCommand) {
+        print("Asking permissions")
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error {
+                print(error.localizedDescription)
+            }
+        }
         sendPluginResult(status: CDVCommandStatus_OK, message: "It ran", callbackId: command.callbackId)
     }
     

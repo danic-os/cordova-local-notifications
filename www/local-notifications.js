@@ -1,5 +1,10 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function (arg0, success, error) {
-    exec(success, error, 'LocalNotifications', 'coolMethod', [arg0]);
+exports.sendNotification = function (arg0, success, error) {
+    exec(success, error, 'LocalNotifications', 'sendNotification', [arg0]);
+};
+
+
+exports.askPermission = function (arg0, success, error) {
+    exec(success, error, 'LocalNotifications', 'askPermission', [arg0]);
 };
